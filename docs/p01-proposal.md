@@ -59,15 +59,14 @@ We are able to have the opportunity to do research on global warming and climate
 |Dataset|Number of Observations|Number of Variables|
 |-------|----------------------|-------------------|
 |U.S. Greenhouse Gas Emissions by Gas, 1990–2020|37|5|
-|U.S. Greenhouse Gas Emissions and Sinks by Economic Sector, 1990–2020|37|8|
 |U.S. Climate Extremes Index (CEI)|113|1|
 |Contiguous U.S. Average Temperature|126|3|
 |Contiguous U.S. Maximum Temperature|126|3|
 |Contiguous U.S. Minimum Temperature|126|3|
 
-1. **U.S. Greenhouse Gas Emissions by Gas/Economic Sector, 1990–2020 (Environmental Protection Agency, 2022)**
+1. **U.S. Greenhouse Gas Emissions by Gas Sector, 1990–2020 (Environmental Protection Agency, 2022)**
 
-    The greenhouse is highly related to climate change, and the two datasets indicate the gas emissions by gas types and economic sectors from 1990 to 2020, which is helpful for resolving our first research question revolving around the relationship between greenhouse gas and the national climate change trends by giving us the gas emission sources and the type of gas that is prevalent in greenhouse gas emissions.
+    The greenhouse is highly related to climate change, and the dataset indicates the gas emissions by gas types from 1990 to 2020, which is helpful for resolving our first research question revolving around the relationship between greenhouse gas and the national climate change trends by giving us the gas emission sources and the type of gas that is prevalent in greenhouse gas emissions.
 
     This dataset is collected by the United States Environmental Protection Agency in 2022, in order to collect and track the data related to climate change in the U.S. EPA has two key programs that provide data on greenhouse gas emissions in the United States: the Inventory of U.S. Greenhouse Gas Emissions and Sinks and the Greenhouse Gas Reporting Program, collaborating with hundreds of experts representing more than a dozen U.S. government agencies, academic institutions, industry associations, consultants and environmental organizations. The U.S. government and citizens are likely to benefit from the dataset. The data is credible as it’s collected by an agency of the United States government.
 
