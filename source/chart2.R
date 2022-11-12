@@ -1,7 +1,6 @@
 chart2 <- function() {
   # Libraries
   library(ggplot2)
-  library(hrbrthemes)
   library(tidyverse)
   title  <- "U.S. Climate Extremes Index (CEI)"
   subtitle <- "Data Source: ClimDiv"
