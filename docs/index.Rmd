@@ -7,6 +7,7 @@ output: html_document
 
 ```{r setup, include=FALSE}
 library(knitr)
+library(dplyr)
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
@@ -26,7 +27,7 @@ _INFO-201: Technical Foundations of Informatics - The Information School - Unive
 
 ## Abstract
 
-In our project, we are focusing on global warming in climate change and answer this question, **“what obvious change of greenhouse gas in climate to increase global warming in the last few years?”**. This question will help us learn about a more serious situation in our environment. It is not only a dangerous problem in the US but also a global issue. We should recognize it and know how to prevent it in person from learning about the question, and know how to do some actions. 
+In our project, we are focusing on global warming in climate change and answer this question, **“what obvious change of greenhouse gas in climate to increase global warming in the last few years?”**. This question will help us learn about a more serious situation in our environment. It is not only a dangerous problem in the US but also a global issue. We should recognize it and know how to prevent it in person from learning about the question, and know how to do some actions.
 
 ## Introduction
 
@@ -54,7 +55,7 @@ We are able to have the opportunity to do research on global warming and climate
 
 1. Which greenhouse gasses omit the most?
 
-    Finding what greenhouse gasses omit the most will help discover how to decrease climate change. Some of the greenhouse gasses are carbon dioxide, methane, nitrous oxide, etc. Those gasses are often produced by humans with their work and lifestyles. Therefore, finding out the main reason with the factor of knowing the greenhouse gasses will help climate change decrease in the future. 
+    Finding what greenhouse gasses omit the most will help discover how to decrease climate change. Some of the greenhouse gasses are carbon dioxide, methane, nitrous oxide, etc. Those gasses are often produced by humans with their work and lifestyles. Therefore, finding out the main reason with the factor of knowing the greenhouse gasses will help climate change decrease in the future.
 
 2. What are the indicators of climate change?
 
@@ -62,9 +63,13 @@ We are able to have the opportunity to do research on global warming and climate
 
 3. How does the climate extremes index change over time?
 
-    By seeing how the indexes change over time, we can examine a time period where something happened. Additionally, there has been data found between 1895 to 2020. So by using this data, we will be able to see the differences and find solutions on what can change to fix the climate extremes. 
+    By seeing how the indexes change over time, we can examine a time period where something happened. Additionally, there has been data found between 1895 to 2020. So by using this data, we will be able to see the differences and find solutions on what can change to fix the climate extremes.
 
 ## The Dataset
+
+```{r source_summary_info, echo = FALSE, message = FALSE}
+source("../source/summary_info.R")
+```
 
 |Dataset|Number of Observations|Number of Variables|
 |-------|----------------------|-------------------|
@@ -80,6 +85,12 @@ We are able to have the opportunity to do research on global warming and climate
 
     This dataset is collected by the United States Environmental Protection Agency in 2022, in order to collect and track the data related to climate change in the U.S. EPA has two key programs that provide data on greenhouse gas emissions in the United States: the Inventory of U.S. Greenhouse Gas Emissions and Sinks and the Greenhouse Gas Reporting Program, collaborating with hundreds of experts representing more than a dozen U.S. government agencies, academic institutions, industry associations, consultants and environmental organizations. The U.S. government and citizens are likely to benefit from the dataset. The data is credible as it’s collected by an agency of the United States government.
 
+    **Summary Information**:
+
+    This dataset has `r summary_data_1$observations` years of observation, and collected data for `r summary_data_1$gas_types` kinds of gasses.
+
+    For carbon dioxide, the year when the gas is emitted the most is `r summary_data_1$year_most_co2`. For methane, it's `r summary_data_1$year_most_co2`. And for nitrous oxide and other gasses, it's `r summary_data_1$year_most_no` and `r summary_data_1$year_most_other`
+
     **Aggregate Table**:
     ```{r first_table, echo = FALSE, message = FALSE}
     source("../source/summary_table.R")
@@ -87,6 +98,10 @@ We are able to have the opportunity to do research on global warming and climate
     ```
 
 2. **U.S. Climate Extremes Index (CEI) (NOAA National Center for Environmental Information, 2022a)**
+
+```{r load_second_dataset, echo = FALSE, message = FALSE}
+second_dataset <- read.csv("../data/cei.csv")
+```
 
     This dataset is a complex set of multivariate and multidimensional climate changes in the United States so that the results could be easily understood and used in policy decisions made by nonspecialists in the field. It is helpful for solving our second research question about the indicators of climate change as the dataset is calculated based on 4 indicators:
 
@@ -96,6 +111,10 @@ We are able to have the opportunity to do research on global warming and climate
     4. landfalling tropical storm and hurricane wind velocity
 
     This dataset is collected by the National Center for Environmental Information and updated by month, in order to provide intuitive information for policy decisions and the general public. The data is calculated from other datasets including NCEI's nClimGrid (Vose et al., 2014). The dataset is credible as it’s collected by a government authority.
+
+    **Summary Information**:
+
+    This dataset recorded the calculated climate extremes index for `r summary_data_2$observations` years till this day. Among the indices, the highest index is `r summary_data_2$max_index`, the lowest index is `r summary_data_2$min_index` and the average index is `r summary_data_2$avg_index`. The year when the highest index was calculated is `r summary_data_2$year_max_index`.
 
     **Aggregate Table**:
     ```{r second_table, echo = FALSE, message = FALSE}
@@ -124,7 +143,7 @@ plot(chart2())
 ```
 
 > The bar plot with smooth is about the relationship between the climate extremes index (CEI) and date from 1895 until now.
-> In the smooth line, it shows the CEI be positive from negative value as time goes. It means the climate is becoming more and more extremely near the several decades because there are more positive bars than in the past.
+> In the smooth line, it shows the CEI decreasing before 1975 and rapidly increasing as time goes. It means the climate is becoming more and more extremely near the several decades because there are more positive bars than in the past.
 
 ## Expected Implications
 
@@ -154,10 +173,10 @@ We would like to acknowledge the group members working on this project, the teac
 
 1. Environmental Protection Agency. (2022). *Climate Change Indicators: U.S. Greenhouse Gas Emissions*. Retrieved October 29, 2022, from https://www.epa.gov/climate-indicators/climate-change-indicators-us-greenhouse-gas-emissions
 2. NOAA National Center for Environmental Information. (2022). *U.S. climate extremes index (CEI). U.S. Climate Extremes Index (CEI) | National Centers for Environmental Information (NCEI)*. Retrieved October 29, 2022, from https://www.ncei.noaa.gov/access/monitoring/cei/
-3. *Climate Change and Human Health: Racing to Curb the Ripple Effect*. (May 23, 2022). Retrieved October 29, 2022, from https://www.bayer.com/en/news-stories/climate-change-and-human-health?gclid=Cj0KCQjwnvOaBhDTARIsAJf8eVMI_iCxAyKFOe4DEypndFT36I15LQNhkpvq8i1XP__9H1yDulXpDOAaAjDvEALw_wcB 
+3. *Climate Change and Human Health: Racing to Curb the Ripple Effect*. (May 23, 2022). Retrieved October 29, 2022, from https://www.bayer.com/en/news-stories/climate-change-and-human-health?gclid=Cj0KCQjwnvOaBhDTARIsAJf8eVMI_iCxAyKFOe4DEypndFT36I15LQNhkpvq8i1XP__9H1yDulXpDOAaAjDvEALw_wcB
 4. Legates, D. R. (2002). *Limitations of climate models as predictors of climate change*. National Center for Policy Analysis. Retrieved October 29, 2022, from https://www.ncpathinktank.org/pub/ba396
 5. Vose, R., Applequist, S., Squires, M., Durre, I., Menne, M. J., Jr., C. N. W., Fenimore, C., Gleason, K., &amp; Arndt, D. (2015, June 12). *NOAA monthly U.S. Climate Gridded Dataset (nclimgrid)*. National Centers for Environmental Information (NCEI). doi:10.7289/V5SX6B56
-6. *Climate change impacts*. National Oceanic and Atmospheric Administration. (n.d.). Retrieved October 29, 2022, from https://www.noaa.gov/education/resource-collections/climate/climate-change-impacts 
+6. *Climate change impacts*. National Oceanic and Atmospheric Administration. (n.d.). Retrieved October 29, 2022, from https://www.noaa.gov/education/resource-collections/climate/climate-change-impacts
 7. NOAA National Centers for Environmental information. (2022). *Climate at a Glance: National Mapping, Average Temperature*. Retrieved October 29, 2022 from https://www.ncdc.noaa.gov/cag/
 
 ## Appendix A
