@@ -97,6 +97,8 @@ source("../source/summary_info.R")
     kable(first_table)
     ```
 
+    > The table includes four types of carbon emissions and the total amount it omitted. Calculating the total amount lets us recognize which greenhouse gasses omit the most to find solutions to reduce them. Additionally, showing the total amount instead of each year's emissions can have a simple graph for readers to observe.
+
 2. **U.S. Climate Extremes Index (CEI) (NOAA National Center for Environmental Information, 2022a)**
 
 ```{r load_second_dataset, echo = FALSE, message = FALSE}
@@ -121,6 +123,8 @@ second_dataset <- read.csv("../data/cei.csv")
     source("../source/summary_table.R")
     kable(second_table)
     ```
+
+    > The table has indexes from the years 1910 to 2021. It shows the average extremes from the dates to examine the changes over time. Additionally, we calculated this table to find out what was happening over time with climate change and to find answers to our research question.
 
 3. **Contiguous U.S. Average/Maximum/Minimum Temperature (NOAA NCEI, 2022b)**
 
