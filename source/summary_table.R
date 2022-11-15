@@ -13,15 +13,16 @@ first_table <- data %>%
   summarize(Total.Emission = sum(Emissions))
 
 #Second Table
-data_2 <- read.csv("../data/annual_average_temperature_anomaly.csv")
+data_2 <- read.csv("../data/cei.csv")
 
 second_table <- data_2 %>%
+  mutate(Percent.Diff = Percent - lag(Percent, default = 43.08)) %>%
   gather(
-    key = Source.Type,
+    key = Value.Type,
     value = Index,
-    -Date
+    -Year
   ) %>%
-  group_by(Source.Type) %>%
-  filter(Source.Type == "ClimDiv") %>%
-  ungroup(Source.Type) %>%
-  select(-Source.Type)
+  group_by(Value.Type) %>%
+  filter(Value.Type == "Percent.Diff") %>%
+  ungroup() %>%
+  select(-Value.Type)

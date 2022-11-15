@@ -5,17 +5,17 @@ chart2 <- function() {
   title  <- "U.S. Climate Extremes Index (CEI)"
   subtitle <- "Data Source: ClimDiv"
   
-  anomaly <- read.csv("../data/annual_average_temperature_anomaly.csv", stringsAsFactors = FALSE)
+  anomaly <- read.csv("../data/cei.csv", stringsAsFactors = FALSE)
 
   # create data
   data <- data.frame(
-    date = anomaly$Date,
-    value = anomaly$ClimDiv
+    date = anomaly$Year,
+    value = anomaly$Percent
   )
   
   # Most basic error bar
   p <- ggplot(data) +
-    geom_bar(mapping = aes(x=date, y=value), stat="identity", fill="red", width = 5, alpha=0.7) +
+    geom_bar(mapping = aes(x=date, y=value), stat="identity", fill="red", width = 1, alpha=0.7) +
     geom_smooth(mapping = aes(x=date, y=value)) +
     labs(
       x = "Date",
