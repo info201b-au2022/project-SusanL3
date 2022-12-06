@@ -1,17 +1,20 @@
 library(shiny)
 library(dplyr)
+library(tidyr)
+library(ggplot2)
+library(plotly)
 
-ghg_emissions <- read.csv("../../data/us-ghg-emissions_fig-1.csv", stringsAsFactors = F)
+ghg_emissions <- read.csv("./data/us-ghg-emissions_fig-1.csv", stringsAsFactors = F)
 
-cei <- read.csv("../../data/cei.csv", stringsAsFactors = F)
+cei <- read.csv("./data/cei.csv", stringsAsFactors = F)
 
-tmin <- read.csv("../../data/110-tmin-12-12-1895-2020.csv", stringsAsFactors = F)
-tmax <- read.csv("../../data/110-tmax-12-12-1895-2020.csv", stringsAsFactors = F)
-tavg <- read.csv("../../data/110-tavg-12-12-1895-2020.csv", stringsAsFactors = F)
+tmin <- read.csv("./data/110-tmin-12-12-1895-2020.csv", stringsAsFactors = F)
+tmax <- read.csv("./data/110-tmax-12-12-1895-2020.csv", stringsAsFactors = F)
+tavg <- read.csv("./data/110-tavg-12-12-1895-2020.csv", stringsAsFactors = F)
 
 server <- function(input, output) {
   output$chart1 <- renderPlotly({
-    title <- paste0("Changes of Greenhouse Emissions (", input$ghg_year_range[1], "-", input$ghg_year_range[2], ")")
+    title <- paste0("Changes of Greenhouse Gas Emissions (", input$ghg_year_range[1], "-", input$ghg_year_range[2], ")")
     legend_x <- "Year"
     legend_y <- "Emissions (million metrics tons of carbon dioxide equivalent)"
     color <- "Gas Type"
